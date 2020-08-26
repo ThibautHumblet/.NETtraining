@@ -38,7 +38,20 @@ namespace CoronaTraining
 			}
 			randomName += random.Next(0, 99);
 			Console.WriteLine(randomName);
+		}
 
+		public bool TryVaccin(Vaccin vaccin)
+		{
+			if (vaccin.TryKillCode() == killcode)
+			{
+				vaccin.Oplossing = killcode;
+				return true;
+			}
+			else
+			{
+				doomCountdown--;
+				return false;
+			}
 		}
 
 	}
