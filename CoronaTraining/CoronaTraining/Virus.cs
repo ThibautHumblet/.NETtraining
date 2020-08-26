@@ -15,11 +15,11 @@ namespace CoronaTraining
 		public int DoomCountdown
 		{
 			get { return doomCountdown; }
-			private set 
+			set 
 			{ 
-				doomCountdown = value;
-				if (doomCountdown < 1)
+				if (doomCountdown <= 0)
 					Console.WriteLine("Game Over " + NaamVirus);
+				doomCountdown = value;
 			}
 		}
 
@@ -36,8 +36,7 @@ namespace CoronaTraining
 				int num = random.Next(0, chars.Length - 1);
 				randomName += chars[num];
 			}
-			randomName += random.Next(0, 99);
-			Console.WriteLine(randomName);
+			randomName += random.Next(1, 100);
 		}
 
 		public bool TryVaccin(Vaccin vaccin)
@@ -49,7 +48,7 @@ namespace CoronaTraining
 			}
 			else
 			{
-				doomCountdown--;
+				DoomCountdown--;
 				return false;
 			}
 		}

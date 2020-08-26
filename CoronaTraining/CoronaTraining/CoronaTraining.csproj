@@ -46,6 +46,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Vaccin.cs" />
+    <Compile Include="VaccinatieCentrum.cs" />
     <Compile Include="Virus.cs" />
   </ItemGroup>
   <ItemGroup>

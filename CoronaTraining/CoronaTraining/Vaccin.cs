@@ -16,11 +16,17 @@ namespace CoronaTraining
             _name = name;
         }
 
+        public Vaccin(string name, int oplossing)
+        {
+            _name = name;
+            Oplossing = oplossing;
+        }
+
         public int TryKillCode()
         {
             Random random = new Random();
             if (Oplossing == -1)
-                return random.Next(0, 101);
+                return random.Next(0, 100);
             else
                 return Oplossing;
         }
