@@ -1,22 +1,25 @@
 import React, { Component } from 'react';
 import './App.css';
-import Todos from './components/Todos'
+import Todos from './components/Todos';
+import AddTodo from './components/AddTodo';
+import Header from './components/layout/Header';
+import { v4 as uuidv4} from 'uuid';
 
 class App extends Component {
   state = {
     todos: [
       {
-        id: 1,
+        id: uuidv4(),
         title: 'Basic refresh .NET',
         completed: true
       },
       {
-        id: 2,
+        id: uuidv4(),
         title: 'Finish thumblet.be website',
         completed: false
       },
       {
-        id: 3,
+        id: uuidv4(),
         title: 'Learn React',
         completed: false
       },
@@ -38,11 +41,23 @@ class App extends Component {
     this.setState({ todos: [...this.state.todos.filter(todo => todo.id !== id)] });
   }
 
+  addTodo = (title) => {
+    const newTodo = {
+      id: uuidv4(),
+      title: title,
+      completed: false
+    }
+    this.setState({ todos: [...this.state.todos, newTodo] });
+  }
+
   render() {
     return (
       <div className="App">
-        <h1>Thibaut Humblet - Todo List App</h1>
-        <Todos todos={this.state.todos} markComplete={this.markComplete} delTodo={this.delTodo}></Todos>
+        <div className="container">
+          <Header></Header>
+          <AddTodo addTodo={this.addTodo}></AddTodo>
+          <Todos todos={this.state.todos} markComplete={this.markComplete} delTodo={this.delTodo}></Todos>
+        </div>
       </div>
     );
   }
