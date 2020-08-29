@@ -9,7 +9,7 @@ namespace OpdrachtLyceum
     class Leerling
     {
         public string Naam { get; private set; }
-        int leerlingCount = 0;
+        static int leerlingCount = 0;
         public Leerling()
         {
             leerlingCount++;
